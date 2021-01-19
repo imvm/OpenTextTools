@@ -75,28 +75,47 @@ class TextTransformer {
 
 struct ContentView: View {
     @State var text = ""
+    @State var showTransforms = false
 
     var body: some View {
         VStack {
             TextEditor(text: $text)
-            Text(text)
             HStack {
-                analyses
-                transformations
+                VStack(alignment: .leading) {
+                    if !text.isEmpty {
+                        Button {
+                            showTransforms.toggle()
+                        } label: {
+                            HStack {
+                                Text(showTransforms ? "Hide transformed" : "Show transformed")
+                                Image(systemName: showTransforms ? "arrow.down" : "arrow.up")
+                            }
+                        }
+                        transformations
+                            .animation(.easeInOut)
+                            .frame(height: showTransforms ? 200 : 0)
+                    }
+                    analyses
+                }
+                .padding()
+                Spacer()
             }
         }
     }
 
     var analyses: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Word count: \(TextAnalyzer.wordCount(text: text))")
             Text("Character count: \(TextAnalyzer.characterCount(text: text))")
             Text("Reading level: \(TextAnalyzer.readingLevel(text: text).rawValue)")
         }
     }
 
+    @ViewBuilder
     var transformations: some View {
-        VStack {
+        if showTransforms {
+            Text(text)
+        } else {
             EmptyView()
         }
     }
