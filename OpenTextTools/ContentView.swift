@@ -28,8 +28,12 @@ class TextAnalyzer {
         return String(scalars).count
     }
 
+    private static func words(_ text: String) -> [String] {
+        text.components(separatedBy: .whitespacesAndNewlines).compactMap({ $0.isEmpty ? nil : $0 })
+    }
+
     static func wordCount(text: String) -> Int {
-        text.components(separatedBy: .whitespacesAndNewlines).compactMap({ $0.isEmpty ? nil : $0 }).count
+        words(text).count
     }
 
     static func sentenceCount(text: String) -> Int {
@@ -45,7 +49,7 @@ class TextAnalyzer {
     }
 
     static func uniqueWords(text: String) -> Int {
-        Set(text.components(separatedBy: .whitespacesAndNewlines).compactMap({ $0.isEmpty ? nil : $0 })).count
+        Set(words(text)).count
     }
 
     static func averageWordLength(text: String) -> Int {
@@ -57,7 +61,9 @@ class TextAnalyzer {
     }
 
     static func readingTime(text: String) -> TimeInterval {
-        1
+        let timePerLetter = 0.05
+        let totalTime = words(text).map({ Double($0.count) * timePerLetter }).reduce(0, +)
+        return totalTime
     }
 
     static func speakingTime(text: String) -> TimeInterval {
@@ -113,12 +119,19 @@ struct ContentView: View {
         }
     }
 
+    var formattedReadingTime: String {
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 2
+        return formatter.string(from: NSNumber(value: TextAnalyzer.readingTime(text: text)))!
+    }
+
     var analyses: some View {
         VStack(alignment: .leading) {
             Text("Word count: \(TextAnalyzer.wordCount(text: text))")
             Text("Character count: \(TextAnalyzer.characterCount(text: text))")
             Text("Unique words: \(TextAnalyzer.uniqueWords(text: text))")
             Text("Reading level: \(TextAnalyzer.readingLevel(text: text).rawValue)")
+            Text("Reading time: \(formattedReadingTime) seconds")
         }
     }
 
