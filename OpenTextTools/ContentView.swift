@@ -13,13 +13,23 @@ enum FleschKincaidReadingLevel: String {
     case hard
 }
 
+extension String {
+    init(_ scalars: [UnicodeScalar]) {
+        self = .init(String.UnicodeScalarView(scalars))
+    }
+}
+
 class TextAnalyzer {
     static func characterCount(text: String) -> Int {
-        text.count
+        let scalars = text.unicodeScalars.compactMap { scalar in
+            CharacterSet.whitespacesAndNewlines.contains(scalar) ? nil : scalar
+        }
+
+        return String(scalars).count
     }
 
     static func wordCount(text: String) -> Int {
-        text.components(separatedBy: .whitespaces).count - 1
+        text.components(separatedBy: .whitespacesAndNewlines).compactMap({ $0.isEmpty ? nil : $0 }).count
     }
 
     static func sentenceCount(text: String) -> Int {
