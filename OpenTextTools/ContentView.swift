@@ -45,7 +45,7 @@ class TextAnalyzer {
     }
 
     static func uniqueWords(text: String) -> Int {
-        text.components(separatedBy: .whitespaces).count - 1
+        Set(text.components(separatedBy: .whitespacesAndNewlines).compactMap({ $0.isEmpty ? nil : $0 })).count
     }
 
     static func averageWordLength(text: String) -> Int {
@@ -117,6 +117,7 @@ struct ContentView: View {
         VStack(alignment: .leading) {
             Text("Word count: \(TextAnalyzer.wordCount(text: text))")
             Text("Character count: \(TextAnalyzer.characterCount(text: text))")
+            Text("Unique words: \(TextAnalyzer.uniqueWords(text: text))")
             Text("Reading level: \(TextAnalyzer.readingLevel(text: text).rawValue)")
         }
     }
