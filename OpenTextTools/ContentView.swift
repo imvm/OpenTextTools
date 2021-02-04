@@ -67,7 +67,7 @@ class TextAnalyzer {
     }
 
     static func speakingTime(text: String) -> TimeInterval {
-        1
+        fatalError()
     }
 }
 
@@ -81,11 +81,15 @@ class TextTransformer {
     }
 
     static func titleCase(text: String) -> String {
-        text.uppercased()
+        fatalError()
     }
 
     static func sentenceCase(text: String) -> String {
-        text.uppercased()
+        fatalError()
+    }
+
+    static func applying(regex: String) -> String {
+        fatalError()
     }
 }
 
@@ -94,27 +98,32 @@ struct ContentView: View {
     @State var showTransforms = false
 
     var body: some View {
-        VStack {
+        HStack(alignment: .top) {
+            stats
             TextEditor(text: $text)
+        }
+    }
+
+    var stats: some View {
+        VStack(alignment: .leading) {
+            if !text.isEmpty {
+                transformButton
+                transformations
+                    .animation(.easeInOut)
+                    .frame(height: showTransforms ? 200 : 0)
+            }
+            analyses
+        }
+        .padding()
+    }
+
+    var transformButton: some View {
+        Button {
+            showTransforms.toggle()
+        } label: {
             HStack {
-                VStack(alignment: .leading) {
-                    if !text.isEmpty {
-                        Button {
-                            showTransforms.toggle()
-                        } label: {
-                            HStack {
-                                Text(showTransforms ? "Hide transformed" : "Show transformed")
-                                Image(systemName: showTransforms ? "arrow.down" : "arrow.up")
-                            }
-                        }
-                        transformations
-                            .animation(.easeInOut)
-                            .frame(height: showTransforms ? 200 : 0)
-                    }
-                    analyses
-                }
-                .padding()
-                Spacer()
+                Text(showTransforms ? "Hide transformed" : "Show transformed")
+                Image(systemName: showTransforms ? "arrow.down" : "arrow.up")
             }
         }
     }
@@ -127,11 +136,11 @@ struct ContentView: View {
 
     var analyses: some View {
         VStack(alignment: .leading) {
-            Text("Word count: \(TextAnalyzer.wordCount(text: text))")
-            Text("Character count: \(TextAnalyzer.characterCount(text: text))")
-            Text("Unique words: \(TextAnalyzer.uniqueWords(text: text))")
-            Text("Reading level: \(TextAnalyzer.readingLevel(text: text).rawValue)")
-            Text("Reading time: \(formattedReadingTime) seconds")
+            Label("Word count: \(TextAnalyzer.wordCount(text: text))", systemImage: "number.circle")
+            Label("Character count: \(TextAnalyzer.characterCount(text: text))", systemImage: "number.circle")
+            Label("Unique words: \(TextAnalyzer.uniqueWords(text: text))", systemImage: "number.circle")
+            Label("Reading level: \(TextAnalyzer.readingLevel(text: text).rawValue)", systemImage: "book.circle")
+            Label("Reading time: \(formattedReadingTime) seconds", systemImage: "deskclock")
         }
     }
 
