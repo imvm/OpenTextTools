@@ -53,7 +53,9 @@ class TextAnalyzer {
     }
 
     static func averageWordLength(text: String) -> Int {
-        text.components(separatedBy: .whitespaces).count - 1
+        let wc = wordCount(text: text)
+        guard wc > 0 else { return 0}
+        return characterCount(text: text) / wc
     }
 
     static func readingLevel(text: String) -> FleschKincaidReadingLevel {
@@ -137,6 +139,7 @@ struct ContentView: View {
     var analyses: some View {
         VStack(alignment: .leading) {
             Label("Word count: \(TextAnalyzer.wordCount(text: text))", systemImage: "number.circle")
+            Label("Avg word length: \(TextAnalyzer.averageWordLength(text: text))", systemImage: "number.circle")
             Label("Character count: \(TextAnalyzer.characterCount(text: text))", systemImage: "number.circle")
             Label("Unique words: \(TextAnalyzer.uniqueWords(text: text))", systemImage: "number.circle")
             Label("Reading level: \(TextAnalyzer.readingLevel(text: text).rawValue)", systemImage: "book.circle")
