@@ -7,12 +7,6 @@
 
 import SwiftUI
 
-extension String {
-    init(_ scalars: [UnicodeScalar]) {
-        self = .init(String.UnicodeScalarView(scalars))
-    }
-}
-
 struct ContentView: View {
     @State var text = ""
     @State var showTransforms = false

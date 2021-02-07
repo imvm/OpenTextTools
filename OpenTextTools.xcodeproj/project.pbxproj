@@ -16,6 +16,7 @@
 		2B7F8A6E25CF70250083C08E /* FleschKincaidReadingLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F8A6D25CF70250083C08E /* FleschKincaidReadingLevel.swift */; };
 		2B7F8A7325CF70650083C08E /* TextAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F8A7225CF70650083C08E /* TextAnalyzer.swift */; };
 		2B7F8A7825CF70840083C08E /* TextTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F8A7725CF70840083C08E /* TextTransformer.swift */; };
+		2B7F8A8025CF70E50083C08E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F8A7F25CF70E50083C08E /* String+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		2B7F8A6D25CF70250083C08E /* FleschKincaidReadingLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleschKincaidReadingLevel.swift; sourceTree = "<group>"; };
 		2B7F8A7225CF70650083C08E /* TextAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalyzer.swift; sourceTree = "<group>"; };
 		2B7F8A7725CF70840083C08E /* TextTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTransformer.swift; sourceTree = "<group>"; };
+		2B7F8A7F25CF70E50083C08E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				2B7F8A6D25CF70250083C08E /* FleschKincaidReadingLevel.swift */,
 				2B7F8A7225CF70650083C08E /* TextAnalyzer.swift */,
 				2B7F8A7725CF70840083C08E /* TextTransformer.swift */,
+				2B7F8A8425CF70EA0083C08E /* Extensions */,
 			);
 			path = OpenTextTools;
 			sourceTree = "<group>";
@@ -139,6 +142,14 @@
 				2B21939E25B081130015BA53 /* Info.plist */,
 			);
 			path = OpenTextToolsUITests;
+			sourceTree = "<group>";
+		};
+		2B7F8A8425CF70EA0083C08E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2B7F8A7F25CF70E50083C08E /* String+Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +285,7 @@
 				2B21938125B081110015BA53 /* ContentView.swift in Sources */,
 				2B21937F25B081110015BA53 /* OpenTextToolsApp.swift in Sources */,
 				2B7F8A7825CF70840083C08E /* TextTransformer.swift in Sources */,
+				2B7F8A8025CF70E50083C08E /* String+Extensions.swift in Sources */,
 				2B7F8A6E25CF70250083C08E /* FleschKincaidReadingLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
