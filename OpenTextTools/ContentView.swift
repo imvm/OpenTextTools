@@ -10,6 +10,11 @@ import SwiftUI
 struct ContentView: View {
     @State var text = ""
     @State var showTransforms = false
+    let timeFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 2
+        return formatter
+    }()
 
     var body: some View {
         HStack(alignment: .top) {
@@ -43,15 +48,11 @@ struct ContentView: View {
     }
 
     var formattedReadingTime: String {
-        let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 2
-        return formatter.string(from: NSNumber(value: Analyzer.readingTime(text: text)))!
+        timeFormatter.string(from: NSNumber(value: Analyzer.readingTime(text: text)))!
     }
 
     var formattedSpeakingTime: String {
-        let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 2
-        return formatter.string(from: NSNumber(value: Analyzer.speakingTime(text: text)))!
+        timeFormatter.string(from: NSNumber(value: Analyzer.speakingTime(text: text)))!
     }
 
     var analyses: some View {
