@@ -48,7 +48,23 @@ struct ContentView: View {
 
     var sidebar: some View {
         VStack(alignment: .leading) {
-            analyses
+            VStack {
+                Text("Analyses")
+                    .font(.headline)
+                analyses
+            }
+            .padding()
+            VStack {
+                Text("Transforms")
+                    .font(.headline)
+                transforms
+            }
+            .padding()
+        }
+    }
+
+    var transforms: some View {
+        VStack(alignment: .leading) {
             Button {
                 apply(.applyingCase(case: .uppercase))
             } label: {
@@ -71,7 +87,6 @@ struct ContentView: View {
             }
             Spacer()
         }
-        .padding()
     }
 
     var formattedReadingTime: String {
