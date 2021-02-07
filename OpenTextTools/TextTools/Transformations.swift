@@ -55,7 +55,7 @@ extension String {
     }
 
     func titleCase() -> String {
-        fatalError()
+        self.capitalized
     }
 
     func sentenceCase() -> String {
