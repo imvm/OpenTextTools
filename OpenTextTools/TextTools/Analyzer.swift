@@ -16,7 +16,7 @@ class Analyzer {
         return String(scalars).count
     }
 
-    private static func words(_ text: String) -> [String] {
+    static func words(_ text: String) -> [String] {
         text.components(separatedBy: .whitespacesAndNewlines).compactMap({ $0.isEmpty ? nil : $0 })
     }
 
@@ -24,12 +24,24 @@ class Analyzer {
         words(text).count
     }
 
+    static func sentences(_ text: String) -> [String] {
+        fatalError()
+    }
+
     static func sentenceCount(text: String) -> Int {
         text.components(separatedBy: .whitespaces).count - 1
     }
 
+    static func paragraphs(_ text: String) -> [String] {
+        fatalError()
+    }
+
     static func paragraphCount(text: String) -> Int {
         text.components(separatedBy: .whitespaces).count - 1
+    }
+
+    static func syllables(_ text: String) -> [String] {
+        fatalError()
     }
 
     static func syllableCount(text: String) -> Int {
