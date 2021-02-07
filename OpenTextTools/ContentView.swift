@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PartitionKit
 
 struct Constants {
     static let maxTransformHeight: CGFloat = 200
@@ -24,13 +25,16 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             sidebar
-            VStack {
-                TextEditor(text: $text)
-                if showTransforms {
+            if showTransforms {
+                VPart {
+                    TextEditor(text: $text)
+                } bottom: {
                     transformations
-                        .animation(.easeInOut)
-                        .frame(height: showTransforms ? transformHeight : 0)
+                } handle: {
+                    indicator
                 }
+            } else {
+                TextEditor(text: $text)
             }
         }
     }
@@ -80,28 +84,21 @@ struct ContentView: View {
     }
 
     var indicator: some View {
-        ZStack {
-            Rectangle()
-                .frame(height: 15)
-            HStack {
-                Spacer()
-                Circle()
-                    .frame(width: 5, height: 5)
-                Circle()
-                    .frame(width: 5, height: 5)
-                Circle()
-                    .frame(width: 5, height: 5)
-                Spacer()
-            }
-            .foregroundColor(Color(.systemGray))
+        HStack {
+            Circle()
+                .frame(width: 5, height: 5)
+            Circle()
+                .frame(width: 5, height: 5)
+            Circle()
+                .frame(width: 5, height: 5)
         }
+        .foregroundColor(.primary)
+        .contentShape(Rectangle())
     }
 
     @ViewBuilder
     var transformations: some View {
         VStack {
-            indicator
-                .foregroundColor(Color(.systemGray))
             if showTransforms {
                 ScrollView {
                     HStack {
