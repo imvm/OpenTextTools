@@ -45,16 +45,16 @@ struct ContentView: View {
     var formattedReadingTime: String {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 2
-        return formatter.string(from: NSNumber(value: TextAnalyzer.readingTime(text: text)))!
+        return formatter.string(from: NSNumber(value: Analyzer.readingTime(text: text)))!
     }
 
     var analyses: some View {
         VStack(alignment: .leading) {
-            Label("Word count: \(TextAnalyzer.wordCount(text: text))", systemImage: "number.circle")
-            Label("Avg word length: \(TextAnalyzer.averageWordLength(text: text))", systemImage: "number.circle")
-            Label("Character count: \(TextAnalyzer.characterCount(text: text))", systemImage: "number.circle")
-            Label("Unique words: \(TextAnalyzer.uniqueWords(text: text))", systemImage: "number.circle")
-            if let readingLevel = TextAnalyzer.readingLevel(text: text) {
+            Label("Word count: \(Analyzer.wordCount(text: text))", systemImage: "number.circle")
+            Label("Avg word length: \(Analyzer.averageWordLength(text: text))", systemImage: "number.circle")
+            Label("Character count: \(Analyzer.characterCount(text: text))", systemImage: "number.circle")
+            Label("Unique words: \(Analyzer.uniqueWords(text: text))", systemImage: "number.circle")
+            if let readingLevel = Analyzer.readingLevel(text: text) {
                 Label("Reading level: \(readingLevel.description)", systemImage: "book.circle")
             }
             Label("Reading time: \(formattedReadingTime) seconds", systemImage: "deskclock")

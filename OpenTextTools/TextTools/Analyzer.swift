@@ -7,7 +7,7 @@
 
 import Foundation
 
-class TextAnalyzer {
+class Analyzer {
     static func characterCount(text: String) -> Int {
         let scalars = text.unicodeScalars.compactMap { scalar in
             CharacterSet.whitespacesAndNewlines.contains(scalar) ? nil : scalar

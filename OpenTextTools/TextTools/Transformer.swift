@@ -5,7 +5,7 @@
 //  Created by Ian Manor on 06/02/21.
 //
 
-class TextTransformer {
+class Transformer {
     static func lowercase(text: String) -> String {
         text.lowercased()
     }
