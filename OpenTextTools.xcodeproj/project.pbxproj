@@ -17,6 +17,7 @@
 		2B7F8A7325CF70650083C08E /* Analyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F8A7225CF70650083C08E /* Analyzer.swift */; };
 		2B7F8A7825CF70840083C08E /* Transformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F8A7725CF70840083C08E /* Transformer.swift */; };
 		2B7F8A8025CF70E50083C08E /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F8A7F25CF70E50083C08E /* String+Extensions.swift */; };
+		2B7F8A9425CF7A910083C08E /* Comparable+Clamped.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F8A9325CF7A910083C08E /* Comparable+Clamped.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		2B7F8A7225CF70650083C08E /* Analyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Analyzer.swift; sourceTree = "<group>"; };
 		2B7F8A7725CF70840083C08E /* Transformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformer.swift; sourceTree = "<group>"; };
 		2B7F8A7F25CF70E50083C08E /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
+		2B7F8A9325CF7A910083C08E /* Comparable+Clamped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Comparable+Clamped.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				2B7F8A7F25CF70E50083C08E /* String+Extensions.swift */,
+				2B7F8A9325CF7A910083C08E /* Comparable+Clamped.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 				2B21937F25B081110015BA53 /* OpenTextToolsApp.swift in Sources */,
 				2B7F8A7825CF70840083C08E /* Transformer.swift in Sources */,
 				2B7F8A8025CF70E50083C08E /* String+Extensions.swift in Sources */,
+				2B7F8A9425CF7A910083C08E /* Comparable+Clamped.swift in Sources */,
 				2B7F8A6E25CF70250083C08E /* FleschKincaidReadingLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
