@@ -117,13 +117,15 @@ class TextAnalyzer {
     }
 
     static func readingTime(text: String) -> TimeInterval {
-        let timePerLetter = 0.05
-        let totalTime = words(text).map({ Double($0.count) * timePerLetter }).reduce(0, +)
+        let readingTimePerLetter = 0.05
+        let totalTime = words(text).map({ Double($0.count) * readingTimePerLetter }).reduce(0, +)
         return totalTime
     }
 
     static func speakingTime(text: String) -> TimeInterval {
-        fatalError()
+        let speakingTimePerLetter = 0.05
+        let totalTime = words(text).map({ Double($0.count) * speakingTimePerLetter }).reduce(0, +)
+        return totalTime
     }
 }
 
