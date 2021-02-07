@@ -13,6 +13,7 @@
 		2B21938625B081120015BA53 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B21938525B081120015BA53 /* Preview Assets.xcassets */; };
 		2B21939225B081120015BA53 /* OpenTextToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21939125B081120015BA53 /* OpenTextToolsTests.swift */; };
 		2B21939D25B081130015BA53 /* OpenTextToolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21939C25B081130015BA53 /* OpenTextToolsUITests.swift */; };
+		2B7F8A6E25CF70250083C08E /* FleschKincaidReadingLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F8A6D25CF70250083C08E /* FleschKincaidReadingLevel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		2B21939825B081130015BA53 /* OpenTextToolsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OpenTextToolsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B21939C25B081130015BA53 /* OpenTextToolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenTextToolsUITests.swift; sourceTree = "<group>"; };
 		2B21939E25B081130015BA53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B7F8A6D25CF70250083C08E /* FleschKincaidReadingLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleschKincaidReadingLevel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				2B21938725B081120015BA53 /* Info.plist */,
 				2B21938825B081120015BA53 /* OpenTextTools.entitlements */,
 				2B21938425B081120015BA53 /* Preview Content */,
+				2B7F8A6D25CF70250083C08E /* FleschKincaidReadingLevel.swift */,
 			);
 			path = OpenTextTools;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			files = (
 				2B21938125B081110015BA53 /* ContentView.swift in Sources */,
 				2B21937F25B081110015BA53 /* OpenTextToolsApp.swift in Sources */,
+				2B7F8A6E25CF70250083C08E /* FleschKincaidReadingLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
