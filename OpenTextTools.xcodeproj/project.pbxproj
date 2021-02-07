@@ -14,6 +14,8 @@
 		2B21939225B081120015BA53 /* OpenTextToolsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21939125B081120015BA53 /* OpenTextToolsTests.swift */; };
 		2B21939D25B081130015BA53 /* OpenTextToolsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21939C25B081130015BA53 /* OpenTextToolsUITests.swift */; };
 		2B7F8A6E25CF70250083C08E /* FleschKincaidReadingLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F8A6D25CF70250083C08E /* FleschKincaidReadingLevel.swift */; };
+		2B7F8A7325CF70650083C08E /* TextAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F8A7225CF70650083C08E /* TextAnalyzer.swift */; };
+		2B7F8A7825CF70840083C08E /* TextTransformer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7F8A7725CF70840083C08E /* TextTransformer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		2B21939C25B081130015BA53 /* OpenTextToolsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenTextToolsUITests.swift; sourceTree = "<group>"; };
 		2B21939E25B081130015BA53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B7F8A6D25CF70250083C08E /* FleschKincaidReadingLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FleschKincaidReadingLevel.swift; sourceTree = "<group>"; };
+		2B7F8A7225CF70650083C08E /* TextAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAnalyzer.swift; sourceTree = "<group>"; };
+		2B7F8A7725CF70840083C08E /* TextTransformer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTransformer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +109,8 @@
 				2B21938825B081120015BA53 /* OpenTextTools.entitlements */,
 				2B21938425B081120015BA53 /* Preview Content */,
 				2B7F8A6D25CF70250083C08E /* FleschKincaidReadingLevel.swift */,
+				2B7F8A7225CF70650083C08E /* TextAnalyzer.swift */,
+				2B7F8A7725CF70840083C08E /* TextTransformer.swift */,
 			);
 			path = OpenTextTools;
 			sourceTree = "<group>";
@@ -264,8 +270,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B7F8A7325CF70650083C08E /* TextAnalyzer.swift in Sources */,
 				2B21938125B081110015BA53 /* ContentView.swift in Sources */,
 				2B21937F25B081110015BA53 /* OpenTextToolsApp.swift in Sources */,
+				2B7F8A7825CF70840083C08E /* TextTransformer.swift in Sources */,
 				2B7F8A6E25CF70250083C08E /* FleschKincaidReadingLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
