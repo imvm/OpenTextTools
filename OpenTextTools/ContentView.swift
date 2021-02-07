@@ -7,10 +7,59 @@
 
 import SwiftUI
 
-enum FleschKincaidReadingLevel: String {
+enum FleschKincaidReadingLevel: CustomStringConvertible {
+    case veryEasy
     case easy
+    case fairlyEasy
     case medium
+    case fairlyHard
     case hard
+    case veryHard
+    case extremelyHard
+
+    init(fles: Double) {
+        switch fles {
+        case 90...:
+            self = .veryEasy
+        case 80..<90:
+            self = .easy
+        case 70..<80:
+            self = .fairlyEasy
+        case 60..<70:
+            self = .medium
+        case 50..<60:
+            self = .fairlyHard
+        case 30..<50:
+            self = .hard
+        case 10..<30:
+            self = .veryHard
+        case ...10:
+            self = .extremelyHard
+        default:
+            fatalError()
+        }
+    }
+
+    var description: String {
+        switch self {
+            case .veryEasy:
+                return "Very Easy"
+            case .easy:
+                return "Easy"
+            case .fairlyEasy:
+                return "Fairly Easy"
+            case .medium:
+                return "Medium"
+            case .fairlyHard:
+                return "Fairly Hard"
+            case .hard:
+                return "Hard"
+            case .veryHard:
+                return "Very Hard"
+            case .extremelyHard:
+                return "Extremely Hard"
+        }
+    }
 }
 
 extension String {
@@ -44,7 +93,7 @@ class TextAnalyzer {
         text.components(separatedBy: .whitespaces).count - 1
     }
 
-    static func syllables(text: String) -> Int {
+    static func syllableCount(text: String) -> Int {
         text.components(separatedBy: .whitespaces).count - 1
     }
 
@@ -58,8 +107,13 @@ class TextAnalyzer {
         return characterCount(text: text) / wc
     }
 
-    static func readingLevel(text: String) -> FleschKincaidReadingLevel {
-        .easy
+    static func readingLevel(text: String) -> FleschKincaidReadingLevel? {
+        let words = Double(wordCount(text: text))
+        let sentences = Double(sentenceCount(text: text))
+        let syllables = Double(syllableCount(text: text))
+        guard words > 0 && sentences > 0 else { return nil }
+        let fles = 206.835 - (1.015 * (words / sentences)) - (84.6 * (syllables / words))
+        return FleschKincaidReadingLevel(fles: fles)
     }
 
     static func readingTime(text: String) -> TimeInterval {
@@ -142,7 +196,9 @@ struct ContentView: View {
             Label("Avg word length: \(TextAnalyzer.averageWordLength(text: text))", systemImage: "number.circle")
             Label("Character count: \(TextAnalyzer.characterCount(text: text))", systemImage: "number.circle")
             Label("Unique words: \(TextAnalyzer.uniqueWords(text: text))", systemImage: "number.circle")
-            Label("Reading level: \(TextAnalyzer.readingLevel(text: text).rawValue)", systemImage: "book.circle")
+            if let readingLevel = TextAnalyzer.readingLevel(text: text) {
+                Label("Reading level: \(readingLevel.description)", systemImage: "book.circle")
+            }
             Label("Reading time: \(formattedReadingTime) seconds", systemImage: "deskclock")
         }
     }
