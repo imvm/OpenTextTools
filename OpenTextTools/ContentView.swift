@@ -48,6 +48,12 @@ struct ContentView: View {
         return formatter.string(from: NSNumber(value: Analyzer.readingTime(text: text)))!
     }
 
+    var formattedSpeakingTime: String {
+        let formatter = NumberFormatter()
+        formatter.maximumFractionDigits = 2
+        return formatter.string(from: NSNumber(value: Analyzer.speakingTime(text: text)))!
+    }
+
     var analyses: some View {
         VStack(alignment: .leading) {
             Label("Word count: \(Analyzer.wordCount(text: text))", systemImage: "number.circle")
@@ -58,6 +64,7 @@ struct ContentView: View {
                 Label("Reading level: \(readingLevel.description)", systemImage: "book.circle")
             }
             Label("Reading time: \(formattedReadingTime) seconds", systemImage: "deskclock")
+            Label("Speaking time: \(formattedSpeakingTime) seconds", systemImage: "deskclock")
         }
     }
 
