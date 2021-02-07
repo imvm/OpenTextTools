@@ -17,21 +17,26 @@ struct ContentView: View {
     }()
 
     var body: some View {
-        HStack(alignment: .top) {
-            stats
-            TextEditor(text: $text)
+        NavigationView {
+            sidebar
+            VStack {
+                TextEditor(text: $text)
+                if showTransforms {
+                    transformations
+                        .animation(.easeInOut)
+                        .frame(height: showTransforms ? 200 : 0)
+                }
+            }
         }
     }
 
-    var stats: some View {
+    var sidebar: some View {
         VStack(alignment: .leading) {
+            analyses
             if !text.isEmpty {
                 transformButton
-                transformations
-                    .animation(.easeInOut)
-                    .frame(height: showTransforms ? 200 : 0)
             }
-            analyses
+            Spacer()
         }
         .padding()
     }
