@@ -41,20 +41,33 @@ struct ContentView: View {
         }
     }
 
+    func apply(_ transform: TextTransform) {
+        transformedText = text.transform(transform)
+        showTransforms = true
+    }
+
     var sidebar: some View {
         VStack(alignment: .leading) {
             analyses
             Button {
-                transformedText = text.transform(.applyingCase(case: .uppercase))
-                showTransforms = true
+                apply(.applyingCase(case: .uppercase))
             } label: {
                 Label("Uppercase", systemImage: "arrow.up")
             }
             Button {
-                transformedText = text.transform(.applyingCase(case: .lowercase))
-                showTransforms = true
+                apply(.applyingCase(case: .lowercase))
             } label: {
                 Label("Lowercase", systemImage: "arrow.down")
+            }
+            Button {
+                apply(.applyingCase(case: .titleCase))
+            } label: {
+                Text("Title Case")
+            }
+            Button {
+                apply(.applyingCase(case: .sentenceCase))
+            } label: {
+                Text("Sentence Case")
             }
             Spacer()
         }
