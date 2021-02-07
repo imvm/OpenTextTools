@@ -7,9 +7,14 @@
 
 import SwiftUI
 
+struct Constants {
+    static let maxTransformHeight: CGFloat = 200
+}
+
 struct ContentView: View {
     @State var text = ""
     @State var showTransforms = false
+    @State var transformHeight = Constants.maxTransformHeight
     let timeFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 2
@@ -24,7 +29,7 @@ struct ContentView: View {
                 if showTransforms {
                     transformations
                         .animation(.easeInOut)
-                        .frame(height: showTransforms ? 200 : 0)
+                        .frame(height: showTransforms ? transformHeight : 0)
                 }
             }
         }
@@ -74,12 +79,39 @@ struct ContentView: View {
         }
     }
 
+    var indicator: some View {
+        ZStack {
+            Rectangle()
+                .frame(height: 15)
+            HStack {
+                Spacer()
+                Circle()
+                    .frame(width: 5, height: 5)
+                Circle()
+                    .frame(width: 5, height: 5)
+                Circle()
+                    .frame(width: 5, height: 5)
+                Spacer()
+            }
+            .foregroundColor(Color(.systemGray))
+        }
+    }
+
     @ViewBuilder
     var transformations: some View {
-        if showTransforms {
-            Text(text)
-        } else {
-            EmptyView()
+        VStack {
+            indicator
+                .foregroundColor(Color(.systemGray))
+            if showTransforms {
+                ScrollView {
+                    HStack {
+                        Text(text)
+                        Spacer()
+                    }
+                }
+            } else {
+                EmptyView()
+            }
         }
     }
 }
