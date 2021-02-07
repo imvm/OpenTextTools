@@ -14,8 +14,10 @@ struct Constants {
 
 struct ContentView: View {
     @State var text = ""
+    @State var transformedText = ""
     @State var showTransforms = false
     @State var transformHeight = Constants.maxTransformHeight
+
     let timeFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.maximumFractionDigits = 2
@@ -42,23 +44,21 @@ struct ContentView: View {
     var sidebar: some View {
         VStack(alignment: .leading) {
             analyses
-            if !text.isEmpty {
-                transformButton
+            Button {
+                transformedText = text.transform(.applyingCase(case: .uppercase))
+                showTransforms = true
+            } label: {
+                Label("Uppercase", systemImage: "arrow.up")
+            }
+            Button {
+                transformedText = text.transform(.applyingCase(case: .lowercase))
+                showTransforms = true
+            } label: {
+                Label("Lowercase", systemImage: "arrow.down")
             }
             Spacer()
         }
         .padding()
-    }
-
-    var transformButton: some View {
-        Button {
-            showTransforms.toggle()
-        } label: {
-            HStack {
-                Text(showTransforms ? "Hide transformed" : "Show transformed")
-                Image(systemName: showTransforms ? "arrow.down" : "arrow.up")
-            }
-        }
     }
 
     var formattedReadingTime: String {
@@ -102,7 +102,9 @@ struct ContentView: View {
             if showTransforms {
                 ScrollView {
                     HStack {
-                        Text(text)
+                        Text(transformedText)
+                            .multilineTextAlignment(.leading)
+                            .animation(.none)
                         Spacer()
                     }
                 }
