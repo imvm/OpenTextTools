@@ -9,12 +9,6 @@ import Foundation
 import NaturalLanguage
 import SyllableCounter
 
-extension Array where Element: AdditiveArithmetic {
-    func sum() -> Element {
-        reduce(.zero, +)
-    }
-}
-
 class Analyzer {
     static func characterCount(text: String) -> Int {
         let scalars = text.unicodeScalars.compactMap { scalar in

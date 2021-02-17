@@ -5,17 +5,7 @@
 //  Created by Ian Manor on 06/02/21.
 //
 
-enum TextCase: Hashable {
-    case lowercase
-    case uppercase
-    case titleCase
-    case sentenceCase
-}
-
-enum TextTransform: Hashable {
-    case applyingCase(case: TextCase)
-    case applyingRegex(regex: String)
-}
+import Regex
 
 extension String {
     func transform(_ transforms: [TextTransform]) -> String {
