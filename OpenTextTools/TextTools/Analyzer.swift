@@ -6,6 +6,14 @@
 //
 
 import Foundation
+import NaturalLanguage
+import SyllableCounter
+
+extension Array where Element: AdditiveArithmetic {
+    func sum() -> Element {
+        reduce(.zero, +)
+    }
+}
 
 class Analyzer {
     static func characterCount(text: String) -> Int {
@@ -25,11 +33,18 @@ class Analyzer {
     }
 
     static func sentences(_ text: String) -> [String] {
-        fatalError()
+        var result: [String] = []
+        let tagger = NLTagger(tagSchemes: [.lexicalClass])
+        tagger.string = text
+        tagger.enumerateTags(in: text.startIndex..<text.endIndex, unit: .sentence, scheme: .lexicalClass) { (tag, tokenRange) -> Bool in
+            result.append(String(text[tokenRange]))
+            return true
+        }
+        return result
     }
 
     static func sentenceCount(text: String) -> Int {
-        text.components(separatedBy: .whitespaces).count - 1
+        sentences(text).count
     }
 
     static func paragraphs(_ text: String) -> [String] {
@@ -45,7 +60,7 @@ class Analyzer {
     }
 
     static func syllableCount(text: String) -> Int {
-        text.components(separatedBy: .whitespaces).count - 1
+        words(text).map({ SyllableCounter.shared.count(word: $0) }).sum()
     }
 
     static func uniqueWords(text: String) -> Int {

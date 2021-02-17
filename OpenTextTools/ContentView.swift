@@ -94,6 +94,7 @@ struct ContentView: View {
             Label("Word count: \(Analyzer.wordCount(text: viewModel.text))", systemImage: "number.circle")
             Label("Avg word length: \(Analyzer.averageWordLength(text: viewModel.text))", systemImage: "number.circle")
             Label("Character count: \(Analyzer.characterCount(text: viewModel.text))", systemImage: "number.circle")
+            Label("Syllable count: \(Analyzer.syllableCount(text: viewModel.text))", systemImage: "number.circle")
             Label("Unique words: \(Analyzer.uniqueWords(text: viewModel.text))", systemImage: "number.circle")
             if let readingLevel = Analyzer.readingLevel(text: viewModel.text) {
                 Label("Reading level: \(readingLevel.description)", systemImage: "book.circle")

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B08192D25DDA35200F9D522 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08192C25DDA35200F9D522 /* ContentViewModel.swift */; };
+		2B08193625DDB94B00F9D522 /* SyllableCounter in Frameworks */ = {isa = PBXBuildFile; productRef = 2B08193525DDB94B00F9D522 /* SyllableCounter */; };
 		2B21937F25B081110015BA53 /* OpenTextToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21937E25B081110015BA53 /* OpenTextToolsApp.swift */; };
 		2B21938125B081110015BA53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21938025B081110015BA53 /* ContentView.swift */; };
 		2B21938325B081120015BA53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B21938225B081120015BA53 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B7F8A9A25CF7E8F0083C08E /* PartitionKit in Frameworks */,
+				2B08193625DDB94B00F9D522 /* SyllableCounter in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -186,6 +188,7 @@
 			name = OpenTextTools;
 			packageProductDependencies = (
 				2B7F8A9925CF7E8F0083C08E /* PartitionKit */,
+				2B08193525DDB94B00F9D522 /* SyllableCounter */,
 			);
 			productName = OpenTextTools;
 			productReference = 2B21937B25B081110015BA53 /* OpenTextTools.app */;
@@ -260,6 +263,7 @@
 			mainGroup = 2B21937225B081110015BA53;
 			packageReferences = (
 				2B7F8A9825CF7E8F0083C08E /* XCRemoteSwiftPackageReference "PartitionKit" */,
+				2B08193425DDB94B00F9D522 /* XCRemoteSwiftPackageReference "syllable-counter-swift" */,
 			);
 			productRefGroup = 2B21937C25B081110015BA53 /* Products */;
 			projectDirPath = "";
@@ -637,6 +641,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2B08193425DDB94B00F9D522 /* XCRemoteSwiftPackageReference "syllable-counter-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/imvm/syllable-counter-swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		2B7F8A9825CF7E8F0083C08E /* XCRemoteSwiftPackageReference "PartitionKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/kieranb662/PartitionKit";
@@ -648,6 +660,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2B08193525DDB94B00F9D522 /* SyllableCounter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2B08193425DDB94B00F9D522 /* XCRemoteSwiftPackageReference "syllable-counter-swift" */;
+			productName = SyllableCounter;
+		};
 		2B7F8A9925CF7E8F0083C08E /* PartitionKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2B7F8A9825CF7E8F0083C08E /* XCRemoteSwiftPackageReference "PartitionKit" */;
