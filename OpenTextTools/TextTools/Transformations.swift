@@ -59,6 +59,6 @@ extension String {
     }
 
     func sentenceCase() -> String {
-        fatalError()
+        Analyzer.sentences(self).map({ $0.capitalizingFirstLetter() }).joined()
     }
 }

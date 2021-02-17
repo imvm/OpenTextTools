@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2B08192D25DDA35200F9D522 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08192C25DDA35200F9D522 /* ContentViewModel.swift */; };
 		2B08193625DDB94B00F9D522 /* SyllableCounter in Frameworks */ = {isa = PBXBuildFile; productRef = 2B08193525DDB94B00F9D522 /* SyllableCounter */; };
+		2B08193B25DDC83A00F9D522 /* String+capitalizingFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08193A25DDC83A00F9D522 /* String+capitalizingFirstLetter.swift */; };
 		2B21937F25B081110015BA53 /* OpenTextToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21937E25B081110015BA53 /* OpenTextToolsApp.swift */; };
 		2B21938125B081110015BA53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21938025B081110015BA53 /* ContentView.swift */; };
 		2B21938325B081120015BA53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B21938225B081120015BA53 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 
 /* Begin PBXFileReference section */
 		2B08192C25DDA35200F9D522 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		2B08193A25DDC83A00F9D522 /* String+capitalizingFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+capitalizingFirstLetter.swift"; sourceTree = "<group>"; };
 		2B21937B25B081110015BA53 /* OpenTextTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenTextTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B21937E25B081110015BA53 /* OpenTextToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenTextToolsApp.swift; sourceTree = "<group>"; };
 		2B21938025B081110015BA53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			children = (
 				2B7F8A7F25CF70E50083C08E /* String+Extensions.swift */,
 				2B7F8A9325CF7A910083C08E /* Comparable+Clamped.swift */,
+				2B08193A25DDC83A00F9D522 /* String+capitalizingFirstLetter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 				2B7F8A7825CF70840083C08E /* Transformations.swift in Sources */,
 				2B7F8A8025CF70E50083C08E /* String+Extensions.swift in Sources */,
 				2B7F8A9425CF7A910083C08E /* Comparable+Clamped.swift in Sources */,
+				2B08193B25DDC83A00F9D522 /* String+capitalizingFirstLetter.swift in Sources */,
 				2B7F8A6E25CF70250083C08E /* FleschKincaidReadingLevel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
