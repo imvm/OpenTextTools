@@ -13,10 +13,7 @@ struct Constants {
 }
 
 struct ContentView: View {
-    @State var text = ""
-    @State var transformedText = ""
-    @State var showTransforms = false
-    @State var transformHeight = Constants.maxTransformHeight
+    @ObservedObject var viewModel: ContentViewModel
 
     let timeFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -27,23 +24,18 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             sidebar
-            if showTransforms {
+            if viewModel.showTransforms {
                 VPart {
-                    TextEditor(text: $text)
+                    TextEditor(text: $viewModel.text)
                 } bottom: {
                     transformations
                 } handle: {
                     indicator
                 }
             } else {
-                TextEditor(text: $text)
+                TextEditor(text: $viewModel.text)
             }
         }
-    }
-
-    func apply(_ transform: TextTransform) {
-        transformedText = text.transform(transform)
-        showTransforms = true
     }
 
     var sidebar: some View {
@@ -66,22 +58,22 @@ struct ContentView: View {
     var transforms: some View {
         VStack(alignment: .leading) {
             Button {
-                apply(.applyingCase(case: .uppercase))
+                viewModel.apply(.applyingCase(case: .uppercase))
             } label: {
                 Label("Uppercase", systemImage: "arrow.up")
             }
             Button {
-                apply(.applyingCase(case: .lowercase))
+                viewModel.apply(.applyingCase(case: .lowercase))
             } label: {
                 Label("Lowercase", systemImage: "arrow.down")
             }
             Button {
-                apply(.applyingCase(case: .titleCase))
+                viewModel.apply(.applyingCase(case: .titleCase))
             } label: {
                 Text("Title Case")
             }
             Button {
-                apply(.applyingCase(case: .sentenceCase))
+                viewModel.apply(.applyingCase(case: .sentenceCase))
             } label: {
                 Text("Sentence Case")
             }
@@ -90,20 +82,20 @@ struct ContentView: View {
     }
 
     var formattedReadingTime: String {
-        timeFormatter.string(from: NSNumber(value: Analyzer.readingTime(text: text)))!
+        timeFormatter.string(from: NSNumber(value: Analyzer.readingTime(text: viewModel.text)))!
     }
 
     var formattedSpeakingTime: String {
-        timeFormatter.string(from: NSNumber(value: Analyzer.speakingTime(text: text)))!
+        timeFormatter.string(from: NSNumber(value: Analyzer.speakingTime(text: viewModel.text)))!
     }
 
     var analyses: some View {
         VStack(alignment: .leading) {
-            Label("Word count: \(Analyzer.wordCount(text: text))", systemImage: "number.circle")
-            Label("Avg word length: \(Analyzer.averageWordLength(text: text))", systemImage: "number.circle")
-            Label("Character count: \(Analyzer.characterCount(text: text))", systemImage: "number.circle")
-            Label("Unique words: \(Analyzer.uniqueWords(text: text))", systemImage: "number.circle")
-            if let readingLevel = Analyzer.readingLevel(text: text) {
+            Label("Word count: \(Analyzer.wordCount(text: viewModel.text))", systemImage: "number.circle")
+            Label("Avg word length: \(Analyzer.averageWordLength(text: viewModel.text))", systemImage: "number.circle")
+            Label("Character count: \(Analyzer.characterCount(text: viewModel.text))", systemImage: "number.circle")
+            Label("Unique words: \(Analyzer.uniqueWords(text: viewModel.text))", systemImage: "number.circle")
+            if let readingLevel = Analyzer.readingLevel(text: viewModel.text) {
                 Label("Reading level: \(readingLevel.description)", systemImage: "book.circle")
             }
             Label("Reading time: \(formattedReadingTime) seconds", systemImage: "deskclock")
@@ -127,10 +119,10 @@ struct ContentView: View {
     @ViewBuilder
     var transformations: some View {
         VStack {
-            if showTransforms {
+            if viewModel.showTransforms {
                 ScrollView {
                     HStack {
-                        Text(transformedText)
+                        Text(viewModel.transformedText)
                             .multilineTextAlignment(.leading)
                             .animation(.none)
                         Spacer()
@@ -143,8 +135,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+//struct ContentView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ContentView()
+//    }
+//}

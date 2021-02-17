@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B08192D25DDA35200F9D522 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08192C25DDA35200F9D522 /* ContentViewModel.swift */; };
 		2B21937F25B081110015BA53 /* OpenTextToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21937E25B081110015BA53 /* OpenTextToolsApp.swift */; };
 		2B21938125B081110015BA53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21938025B081110015BA53 /* ContentView.swift */; };
 		2B21938325B081120015BA53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B21938225B081120015BA53 /* Assets.xcassets */; };
@@ -39,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2B08192C25DDA35200F9D522 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		2B21937B25B081110015BA53 /* OpenTextTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenTextTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B21937E25B081110015BA53 /* OpenTextToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenTextToolsApp.swift; sourceTree = "<group>"; };
 		2B21938025B081110015BA53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				2B21937E25B081110015BA53 /* OpenTextToolsApp.swift */,
 				2B21938025B081110015BA53 /* ContentView.swift */,
+				2B08192C25DDA35200F9D522 /* ContentViewModel.swift */,
 				2B21938225B081120015BA53 /* Assets.xcassets */,
 				2B21938725B081120015BA53 /* Info.plist */,
 				2B21938825B081120015BA53 /* OpenTextTools.entitlements */,
@@ -300,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B08192D25DDA35200F9D522 /* ContentViewModel.swift in Sources */,
 				2B7F8A7325CF70650083C08E /* Analyzer.swift in Sources */,
 				2B21938125B081110015BA53 /* ContentView.swift in Sources */,
 				2B21937F25B081110015BA53 /* OpenTextToolsApp.swift in Sources */,
