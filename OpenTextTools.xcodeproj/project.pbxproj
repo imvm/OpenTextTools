@@ -14,6 +14,7 @@
 		2B08195625DDE36E00F9D522 /* TextCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08195525DDE36E00F9D522 /* TextCase.swift */; };
 		2B08195B25DDE37C00F9D522 /* Array+Sum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08195A25DDE37C00F9D522 /* Array+Sum.swift */; };
 		2B08196025DDE3A400F9D522 /* TextTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08195F25DDE3A400F9D522 /* TextTransform.swift */; };
+		2B08196D25DDE53C00F9D522 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B08196C25DDE53C00F9D522 /* Constants.swift */; };
 		2B21937F25B081110015BA53 /* OpenTextToolsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21937E25B081110015BA53 /* OpenTextToolsApp.swift */; };
 		2B21938125B081110015BA53 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B21938025B081110015BA53 /* ContentView.swift */; };
 		2B21938325B081120015BA53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B21938225B081120015BA53 /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		2B08195525DDE36E00F9D522 /* TextCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCase.swift; sourceTree = "<group>"; };
 		2B08195A25DDE37C00F9D522 /* Array+Sum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Sum.swift"; sourceTree = "<group>"; };
 		2B08195F25DDE3A400F9D522 /* TextTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextTransform.swift; sourceTree = "<group>"; };
+		2B08196C25DDE53C00F9D522 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2B21937B25B081110015BA53 /* OpenTextTools.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenTextTools.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B21937E25B081110015BA53 /* OpenTextToolsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenTextToolsApp.swift; sourceTree = "<group>"; };
 		2B21938025B081110015BA53 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		2B21937D25B081110015BA53 /* OpenTextTools */ = {
 			isa = PBXGroup;
 			children = (
+				2B08196C25DDE53C00F9D522 /* Constants.swift */,
 				2B21937E25B081110015BA53 /* OpenTextToolsApp.swift */,
 				2B21938025B081110015BA53 /* ContentView.swift */,
 				2B08192C25DDA35200F9D522 /* ContentViewModel.swift */,
@@ -330,6 +333,7 @@
 				2B21937F25B081110015BA53 /* OpenTextToolsApp.swift in Sources */,
 				2B08195625DDE36E00F9D522 /* TextCase.swift in Sources */,
 				2B7F8A7825CF70840083C08E /* Transformations.swift in Sources */,
+				2B08196D25DDE53C00F9D522 /* Constants.swift in Sources */,
 				2B08196025DDE3A400F9D522 /* TextTransform.swift in Sources */,
 				2B7F8A8025CF70E50083C08E /* String+Extensions.swift in Sources */,
 				2B7F8A9425CF7A910083C08E /* Comparable+Clamped.swift in Sources */,

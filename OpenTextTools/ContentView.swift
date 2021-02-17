@@ -8,10 +8,6 @@
 import SwiftUI
 import PartitionKit
 
-struct Constants {
-    static let maxTransformHeight: CGFloat = 200
-}
-
 struct ContentView: View {
     @ObservedObject var viewModel: ContentViewModel
 
