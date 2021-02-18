@@ -6,11 +6,13 @@
 //
 
 import Foundation
+import Regex
 
 class ContentViewModel: ObservableObject {
     // MARK: Properties
     @Published var text = ""
     @Published var regex = ""
+    @Published var showRegexMatches = false
     @Published var transformedText = ""
     @Published var showTransforms = false
     @Published var transformHeight = Constants.maxTransformHeight
@@ -27,6 +29,12 @@ class ContentViewModel: ObservableObject {
 
     var formattedSpeakingTime: String {
         timeFormatter.string(from: NSNumber(value: Analyzer.speakingTime(text: text)))!
+    }
+
+    var regexMatches: [String] {
+        guard let regex = try? Regex(regex) else { return [] }
+        let matches = regex.matches(in: text)
+        return matches.map(\.fullMatch).map(String.init)
     }
 
     // MARK: Functions

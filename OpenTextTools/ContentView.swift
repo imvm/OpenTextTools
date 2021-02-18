@@ -56,9 +56,16 @@ struct ContentView: View {
         VStack {
             TextField("Regex", text: $viewModel.regex)
             Button {
-                viewModel.apply(.applyingRegex(regex: viewModel.regex))
+                viewModel.showRegexMatches = true
             } label: {
                 Text("Apply")
+            }
+            if viewModel.showRegexMatches {
+                Button {
+                    viewModel.showRegexMatches = false
+                } label: {
+                    Text("Hide matches")
+                }
             }
         }
     }

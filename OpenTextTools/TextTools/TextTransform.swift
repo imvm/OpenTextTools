@@ -7,5 +7,4 @@
 
 enum TextTransform: Hashable {
     case applyingCase(case: TextCase)
-    case applyingRegex(regex: String)
 }
