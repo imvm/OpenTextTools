@@ -11,12 +11,6 @@ import PartitionKit
 struct ContentView: View {
     @ObservedObject var viewModel: ContentViewModel
 
-    let timeFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.maximumFractionDigits = 2
-        return formatter
-    }()
-
     var body: some View {
         NavigationView {
             sidebar
@@ -94,14 +88,6 @@ struct ContentView: View {
         }
     }
 
-    var formattedReadingTime: String {
-        timeFormatter.string(from: NSNumber(value: Analyzer.readingTime(text: viewModel.text)))!
-    }
-
-    var formattedSpeakingTime: String {
-        timeFormatter.string(from: NSNumber(value: Analyzer.speakingTime(text: viewModel.text)))!
-    }
-
     var analyses: some View {
         VStack(alignment: .leading) {
             Label("Word count: \(Analyzer.wordCount(text: viewModel.text))", systemImage: "number.circle")
@@ -113,8 +99,8 @@ struct ContentView: View {
             if let readingLevel = Analyzer.readingLevel(text: viewModel.text) {
                 Label("Reading level: \(readingLevel.description)", systemImage: "book.circle")
             }
-            Label("Reading time: \(formattedReadingTime) seconds", systemImage: "deskclock")
-            Label("Speaking time: \(formattedSpeakingTime) seconds", systemImage: "deskclock")
+            Label("Reading time: \(viewModel.formattedReadingTime) seconds", systemImage: "deskclock")
+            Label("Speaking time: \(viewModel.formattedSpeakingTime) seconds", systemImage: "deskclock")
         }
     }
 
