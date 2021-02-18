@@ -31,15 +31,21 @@ class ContentViewModel: ObservableObject {
         timeFormatter.string(from: NSNumber(value: Analyzer.speakingTime(text: text)))!
     }
 
-    var regexMatches: [String] {
+    var regexMatches: [Range<String.Index>] {
         guard let regex = try? Regex(regex) else { return [] }
         let matches = regex.matches(in: text)
-        return matches.map(\.fullMatch).map(String.init)
+        return matches.map(\.range)
     }
 
     // MARK: Functions
     func apply(_ transform: TextTransform) {
         transformedText = text.transform(transform)
         showTransforms = true
+    }
+}
+
+extension Regex.Match {
+    var range: Range<String.Index> {
+        (fullMatch.startIndex..<fullMatch.endIndex)
     }
 }

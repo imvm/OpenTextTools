@@ -14,11 +14,23 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             sidebar
-            if viewModel.showTransforms {
+            if viewModel.showTransforms || viewModel.showRegexMatches {
                 VPart {
                     TextEditor(text: $viewModel.text)
                 } bottom: {
-                    transformations
+                    VStack(alignment: .leading) {
+                        HStack(alignment: .top) {
+                            if viewModel.showRegexMatches {
+                                HighlightedText(text: viewModel.text, highlightedRanges: viewModel.regexMatches)
+                                    .animation(.none)
+                            } else {
+                                transformations
+                                    .animation(.none)
+                            }
+                            Spacer()
+                        }
+                        Spacer()
+                    }
                 } handle: {
                     indicator
                 }
