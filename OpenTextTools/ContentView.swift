@@ -48,6 +48,24 @@ struct ContentView: View {
                 transforms
             }
             .padding()
+            VStack {
+                Text("Regex")
+                    .font(.headline)
+                regex
+            }
+            .padding()
+            Spacer()
+        }
+    }
+
+    var regex: some View {
+        VStack {
+            TextField("Regex", text: $viewModel.regex)
+            Button {
+                viewModel.apply(.applyingRegex(regex: viewModel.regex))
+            } label: {
+                Text("Apply")
+            }
         }
     }
 
@@ -73,7 +91,6 @@ struct ContentView: View {
             } label: {
                 Text("Sentence Case")
             }
-            Spacer()
         }
     }
 

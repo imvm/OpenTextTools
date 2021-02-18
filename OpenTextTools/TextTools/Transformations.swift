@@ -23,7 +23,7 @@ extension String {
         case let .applyingCase(case: textCase):
             return self.applying(textCase: textCase)
         case let .applyingRegex(regex: regex):
-            return self.applying(regex: regex)
+            return self.applying(regex: regex).joined()
         }
     }
 
@@ -40,12 +40,14 @@ extension String {
         }
     }
 
-    func applying(regex: String) -> String {
-        fatalError()
+    func applying(regex: String) -> [String] {
+        guard let regex = try? Regex(regex) else { return [] }
+        let matches = regex.matches(in: self)
+        return matches.map(\.fullMatch).map(String.init)
     }
 
     func titleCase() -> String {
-        self.capitalized
+        capitalized
     }
 
     func sentenceCase() -> String {
